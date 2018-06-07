@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'vue-nuxt',
+    title: '百课',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -33,6 +33,18 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    // 添加loaders
+    loaders: [
+      {
+        test: /\.sass$/,
+        loader: 'sass-loader',
+        include: ['style', 'css', 'sass']
+      }
+    ]
+  },
+  // 添加环境变量
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
   }
 }

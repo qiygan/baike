@@ -13,6 +13,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "nuxt": "^1.0.0"
   },
   "devDependencies": {
@@ -25,6 +26,8 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-vue": "^4.0.0",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3"
   }
 }
