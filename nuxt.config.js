@@ -13,6 +13,12 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  /**
+   * 全局css
+   */
+  css: [
+    '~/css/minireset.css'
+  ],
   /*
   ** Customize the progress bar color
   */
