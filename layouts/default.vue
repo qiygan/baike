@@ -1,19 +1,19 @@
 <template>
   <div>
-    <div>
-      <ul>
-        <li>首页</li>
-        <li>学科介绍</li>
-        <li>教师风采</li>
-        <li>教师讲堂</li>
-        <li>文章动态</li>
-        <li>经验分享</li>
-      </ul>
-    </div>
+    <app-header></app-header>
     <nuxt/>
     <div>页脚</div>
   </div>
 </template>
+<script>
+import AppHeader from '~components/AppHeader'
+export default {
+  name: 'Default',
+  components: {
+    AppHeader
+  }
+}
+</script>
 
 <style>
 
