@@ -17,12 +17,18 @@ module.exports = {
    * 全局css
    */
   css: [
-    '~/css/minireset.css'
+    '~/css/minireset.scss'
   ],
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
+  /*
+  ** vue plugins
+  */
+  plugins: [
+    { src: '~/plugins/vue-plugins.js', ssr: false }
+  ],
   /*
   ** Build configuration
   */
