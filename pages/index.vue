@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index-wrap">
     <swiper :options="swiperOption" class="banner-swiper" ref="mySwiper">
       <swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
         <img :src="slide" />
@@ -135,7 +135,6 @@ export default {
         },
         on: {
           init: () => {
-            console.log('init');
           }
         }
       },
@@ -159,17 +158,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .banner-swiper {
-    height: 380px;
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
   section {
-    margin: 0 auto;
     padding-top: 60px;
-    width: 1180px;
   }
   .title {
     position: relative;
