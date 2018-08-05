@@ -1,8 +1,11 @@
 <template>
   <div class="index-wrap">
     <swiper :options="swiperOption" class="banner-swiper" ref="mySwiper">
-      <swiper-slide v-for="(slide, index) in swiperSlides" :key="index">
-        <img :src="slide" />
+      <swiper-slide v-for="(item, index) in [1, 2, 3, 4]" :key="index">
+        <img v-if="index==0" src="~/assets/images/banner/banner1.png" />
+        <img v-else-if="index==1" src="~/assets/images/banner/banner2.png" />
+        <img v-else-if="index==2" src="~/assets/images/banner/banner3.png" />
+        <img v-else-if="index==3" src="~/assets/images/banner/banner4.png" />
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
@@ -60,7 +63,7 @@
         <span class="point-ico point-left"></span>
         最新课程
         <span class="point-ico point-right"></span>
-        <nuxt-link to="#" class="view-more">更多>></nuxt-link>
+        <nuxt-link to="/classroom" class="view-more">更多>></nuxt-link>
       </h2>
       <course-list :data="courseList"></course-list>
     </section>
@@ -69,7 +72,7 @@
         <span class="point-ico point-left"></span>
         教师风采
         <span class="point-ico point-right"></span>
-        <nuxt-link to="#" class="view-more">更多>></nuxt-link>
+        <nuxt-link to="/teacher" class="view-more">更多>></nuxt-link>
       </h2>
       <div class="teacher-list">
         <div
@@ -139,11 +142,11 @@ export default {
         }
       },
       swiperSlides: [
-        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533140893550&di=79b61189cfc10d7c893f23b6641be241&imgtype=0&src=http%3A%2F%2Fwww.waterwood.cn%2Fuploads%2Fallimg%2F150213%2F1-1502131942143A.jpg',
-        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533140893550&di=aec7fa50d926db0b488946bf4c311301&imgtype=0&src=http%3A%2F%2Fpic.90sjimg.com%2Fback_pic%2F00%2F01%2F88%2F75%2F7ca50c9c73244bf9f5b2de8f3597fdae.jpg',
-        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533140893550&di=85eea6149d8a7af149b51ae6d6d15eed&imgtype=0&src=http%3A%2F%2Fwww.china-gyt.com%2FUploadFiles%2Fimages%2Fbiking.jpg',
-        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533140893550&di=6bce87fed342ffdfb61882f3ef6e5507&imgtype=0&src=http%3A%2F%2Fimg13.360buyimg.com%2Fcms%2Fg15%2FM02%2F15%2F06%2FrBEhWFNHZcwIAAAAAADNI3n5PmMAALmPwHwTQoAAM07040.jpg',
-        'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1533140937636&di=756d2543f031f0c03099e70a87d36d47&imgtype=jpg&src=http%3A%2F%2Fimg4.imgtn.bdimg.com%2Fit%2Fu%3D2883147814%2C3241029447%26fm%3D214%26gp%3D0.jpg'
+        '~/assets/images/banner/banner1.png',
+        '~/assets/images/banner/banner2.png',
+        '~/assets/images/banner/banner3.png',
+        '~/assets/images/banner/banner4.png',
+        '~/assets/images/banner/banner5.png'
       ]
     }
   },

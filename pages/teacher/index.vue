@@ -1,7 +1,7 @@
 <template>
   <div class="teacher-wrap">
     <div class="banner-swiper">
-      <img :src="banner" alt="推荐金牌讲师">
+      <img src="~/assets/images/banner/banner8.png" alt="推荐金牌讲师">
     </div>
     <div class="teacher-filter-box">
       <div class="filter-box first">

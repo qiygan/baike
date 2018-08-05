@@ -16,7 +16,7 @@
           <nuxt-link to="/subject" tag="li">学科介绍</nuxt-link>
           <nuxt-link to="/teacher" tag="li">教师风采</nuxt-link>
           <nuxt-link to="/classroom" tag="li">教师讲堂</nuxt-link>
-          <nuxt-link to="/" tag="li">文章动态</nuxt-link>
+          <nuxt-link to="/dynamic" tag="li">文章动态</nuxt-link>
           <nuxt-link to="/" tag="li">经验分享</nuxt-link>
         </ul>
         <div class="header-search-box">

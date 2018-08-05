@@ -1,7 +1,7 @@
 <template>
   <div class="classroom-wrap">
     <div class="banner-swiper">
-      <img :src="banner" alt="推荐金牌讲师">
+      <img src="~/assets/images/banner/banner7.png" alt="推荐教师讲堂">
     </div>
     <div class="classroom-filter-box">
       <div class="filter-box first">
@@ -51,6 +51,8 @@
           <div class="course-badge strong" v-if="index == 0"></div>
           <div class="course-badge choice" v-else-if="index == 1"></div>
           <div class="course-badge hottest" v-else-if="index == 2"></div>
+          <!-- 播放 -->
+          <i class="play-ico"></i>
         </div>
         <div class="course-cont">
           <p class="course-title" :type="item.type">{{item.title}}</p>
@@ -168,6 +170,14 @@ export default {
             border-radius: 6px;
             &:nth-child(3) {
               margin-right: 0;
+            }
+            .play-ico {
+              display: none;
+            }
+            &:hover {
+              .play-ico {
+                display: block;
+              }
             }
           }
           &-cover {

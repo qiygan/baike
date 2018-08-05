@@ -9,6 +9,11 @@
 %vt {
   vertical-align: top;
 }
+%center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 /* 自定义重置样式 */
 $mainColor: #666; // 主体颜色
 body {
@@ -77,4 +82,23 @@ section {
   height: 12px;
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAAMCAYAAAC0qUeeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4ZGQ0NzRhZS1mNjY5LTQwNzEtYTFkZC1mODdlYjQwNjY3OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6N0E4NUY1MTg5NkM2MTFFOEJGNzZDQUE2QjE3RDA5NkUiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6N0E4NUY1MTc5NkM2MTFFOEJGNzZDQUE2QjE3RDA5NkUiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpiODI1ZTk2Ny1jMjk0LTRjZjItYWZiNS05YWUxZTFhMmEyMjEiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpiYzhjZDI4ZS02ZDVmLTExN2ItYTg4ZS1hY2RhMTI2MzhlNmQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz45olKCAAAA10lEQVR42mL8//8/AzKYNWtWPJAyBuLHQDw7LS3tA0yOiQETKAEV5AHpv0DshSzBgkXxTyj9HIhRrGVCc4IWkBKEcuVhGoHiHHCTgRxGIMUJxFVAvBSq+BAQRwHlVIE0K5B+zSwlJdUJ5LgCcQ4QLwK6dwtIpbGx8eOzQABkXgXiY0AcCTL5MxDfAOJvQIUbkZ0F5L9EcuJdkOKXUMzNgB+wMEE9CdLEToxikOf+QDFWAHSCG5ASA5nIA8SSQKwMFLSA2vQPGsYgWgOIQYq7GNGjGx8ACDAAJyNANTh2TCUAAAAASUVORK5CYII=') no-repeat center;
   vertical-align: -2px;
+}
+.play-ico {
+  position: absolute;
+  @extend %ib, %center;
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, .3);
+  border-radius: 50%;
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 17px;
+    left: 20px;
+    width: 0;
+    height: 0;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 24px solid #fff
+  }
 }

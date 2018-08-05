@@ -33,6 +33,17 @@ export default {
     &-box {
       margin: 60px auto 70px;
       width: 1180px;
+      &.panigation-left {
+        margin-top: 40px;
+        width: 800px;
+        .active {
+          color: #fff;
+          background: #3583ff;
+        }
+        span {
+          background: #e7e7e7;
+        }
+      }
     }
     &-inner {
       display: flex;
