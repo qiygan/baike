@@ -5,8 +5,7 @@
       v-for="(item, index) in data"
       :key="index">
       <div class="course-cover">
-        <img
-          :src="item.cover" :alt="item.name">
+        <img :src="item.cover" :alt="item.name">
         <p class="course-time">{{item.duration}}</p>
       </div>
       <div class="course-cont">
@@ -62,6 +61,8 @@ export default {
     &-list {
       display: flex;
       flex-wrap: wrap;
+      margin: 0 auto;
+      width: 1180px;
     }
     &-item {
       margin-right: 20px;
@@ -70,7 +71,6 @@ export default {
       height: 190px+112px;
       background: #fff;
       border-radius: 6px;
-      cursor: pointer;
       &:nth-child(4n) {
         margin-right: 0;
       }
@@ -84,9 +84,12 @@ export default {
       height: 190px;
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
+      cursor: pointer;
       img {
         width: 100%;
         height: 100%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
       }
     }
     &-time {
