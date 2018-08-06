@@ -70,7 +70,7 @@ export default {
     return {
     }
   },
-  // 设置head数据
+  // Set Meta Tags for this Page
   head () {
     return {
       title: '百课_文章动态',

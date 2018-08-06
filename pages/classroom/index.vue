@@ -45,7 +45,10 @@
         class="course-item"
         v-for="(item, index) in courseRecommendList"
         :key="index">
-        <div class="course-cover">
+        <nuxt-link
+          :to="'/classroom/'+item.id"
+          tag="div"
+          class="course-cover">
           <img :src="item.cover" :alt="item.name">
           <p class="course-time">{{item.duration}}</p>
           <div class="course-badge strong" v-if="index == 0"></div>
@@ -53,7 +56,7 @@
           <div class="course-badge hottest" v-else-if="index == 2"></div>
           <!-- 播放 -->
           <i class="play-ico"></i>
-        </div>
+        </nuxt-link>
         <div class="course-cont">
           <p class="course-title" :type="item.type">{{item.title}}</p>
           <p class="course-money">
@@ -98,7 +101,7 @@ export default {
     return {
     }
   },
-  // 设置head数据
+  // Set Meta Tags for this Page
   head () {
     return {
       title: '百课_教师讲堂',

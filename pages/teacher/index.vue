@@ -62,7 +62,7 @@ export default {
     return {
     }
   },
-  // 设置head数据
+  // Set Meta Tags for this Page
   head () {
     return {
       title: '百课_教师风采',
@@ -157,6 +157,7 @@ export default {
       .attention-btn {
         width: 88px;
         height: 24px;
+        line-height: 24px;
         background: #3583ff;
         color: #fff;
         border-radius: 2px;

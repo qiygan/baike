@@ -87,7 +87,7 @@ export default {
       ]
     }
   },
-  // 设置head数据
+  // Set Meta Tags for this Page
   head () {
     return {
       title: '百课_学科介绍',
