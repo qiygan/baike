@@ -9,7 +9,8 @@ module.exports = {
       { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' },
       { name: 'renderer', content: 'webkit' },
       // { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '百课' }
+      { hid: 'keywords', name: 'keywords', content: '百课是IT技能学习平台。百课提供了丰富的移动端开发、php开发、web前端、android开发以及html5等视频教程资源公开课。并且富有交互性及趣味性，你还可以和朋友一起编程。' },
+      { hid: 'description', name: 'description', content: '百课是IT技能学习平台。百课提供了丰富的移动端开发、php开发、web前端、android开发以及html5等视频教程资源公开课。并且富有交互性及趣味性，你还可以和朋友一起编程。' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

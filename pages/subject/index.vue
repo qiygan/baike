@@ -86,6 +86,16 @@ export default {
         '~/assets/images/banner/banner6.png'
       ]
     }
+  },
+  // 设置head数据
+  head () {
+    return {
+      title: '百课_学科介绍',
+      meta: [
+        { hid: 'keywords', name: 'keywords', content: '百课_学科介绍' },
+        { hid: 'description', name: 'description', content: '百课_学科介绍' }
+      ]
+    }
   }
 }
 </script>

@@ -70,6 +70,16 @@ export default {
     return {
     }
   },
+  // 设置head数据
+  head () {
+    return {
+      title: '百课_文章动态',
+      meta: [
+        { hid: 'keywords', name: 'keywords', content: '百课_文章动态' },
+        { hid: 'description', name: 'description', content: '百课_文章动态' }
+      ]
+    }
+  },
   async asyncData (context) {
     let { data } = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/dynamicList')
     return {
