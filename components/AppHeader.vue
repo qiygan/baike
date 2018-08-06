@@ -17,7 +17,7 @@
           <nuxt-link to="/teacher" tag="li">教师风采</nuxt-link>
           <nuxt-link to="/classroom" tag="li">教师讲堂</nuxt-link>
           <nuxt-link to="/dynamic" tag="li">文章动态</nuxt-link>
-          <nuxt-link to="/" tag="li">经验分享</nuxt-link>
+          <nuxt-link to="/experience" tag="li">经验分享</nuxt-link>
         </ul>
         <div class="header-search-box">
           <input type="text">
@@ -71,8 +71,12 @@ export default {
       font-size: 16px;
       color: #fff;
       cursor: pointer;
-      &:hover {
+      // 当前模块高亮
+      &.nuxt-link-exact-active {
         background: #1155c1;
+      }
+      &:hover {
+        @extend .nuxt-link-exact-active;
       }
     }
     &-wrap {
