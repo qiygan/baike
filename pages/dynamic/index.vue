@@ -36,7 +36,7 @@
         </div>
         <panigation class="panigation-left" :page="[]"></panigation>
       </div>
-      <div class="dynamic-recommend">
+      <!-- <div class="dynamic-recommend">
         <h3 class="dynamic-recommend-title">热门推荐</h3>
         <div class="dynamic-recommend-list">
           <div
@@ -52,19 +52,22 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
+      <recommend-list :data="dynamicRecommendList"></recommend-list>
     </section>
   </div>
 </template>
 <script>
 
 import axios from 'axios'
+import RecommendList from '~/components/RecommendList.vue'
 import Panigation from '~/components/Panigation.vue'
 
 export default {
   name: 'Dynamic',
   components: {
-    Panigation
+    Panigation,
+    RecommendList
   },
   data () {
     return {
@@ -208,7 +211,7 @@ export default {
         margin-right: 12px;
       }
     }
-    &-recommend {
+    /* &-recommend {
       padding: 20px 30px 0;
       width: 360px;
       height: 610px;
@@ -271,6 +274,6 @@ export default {
           border: 1px solid #1cad67;
         }
       }
-    }
+    } */
   }
 </style>

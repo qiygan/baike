@@ -3,42 +3,42 @@
     <!-- {{$route.params.id}} -->
     <div class="course-box">
       <section class="course-cont">
-        <h2 class="classroom-course-title">写作高分技巧提高课程讲解</h2>
+        <h2 class="classroom-course-title">{{courseDetail.title}}</h2>
         <div class="classroom-course-info">
-          <div class="classroom-course-time"><span>雅思</span>2013-05-01</div>
+          <div class="classroom-course-time"><span>{{courseDetail.type}}</span>{{courseDetail.time}}</div>
           <div class="classroom-course-num">
-            <span class="view-ico-box"><i class="view-ico"></i>100</span>
-            <span class="good-ico-box"><i class="good-ico"></i>300</span>
+            <span class="view-ico-box"><i class="view-ico"></i>{{courseDetail.viewNum}}</span>
+            <span class="good-ico-box"><i class="good-ico"></i>{{courseDetail.goodNum}}</span>
           </div>
         </div>
         <div class="course-detail">
           <div class="course-video">
             <i class="play-ico big-ico" @click="playVideo"></i>
-            <video preload="auto" loop src="http://www.lkker.com/sources/LKKVIDWO.mp4" ref="videoRef">
-              <source src="http://219.239.26.10/mp4files/222400000AF8B315/www.lkk-edu.com/media/LKKVIDWO.mp4" type="video/mp4" webkit-playsinline="true">
+            <video preload="auto" loop :src="courseDetail.videoUrl" ref="videoRef">
+              <source :src="courseDetail.videoUrl" type="video/mp4" webkit-playsinline="true">
             </video>
             <div class="course-act">
-              <button type="button" class="collect-btn">收藏</button>
-              <!-- <button type="button" class="collect-btn has-collect">已收藏</button> -->
-              <button type="button" class="like-btn">点赞<span>3246</span></button>
-              <!-- <button type="button" class="like-btn has-like">点赞<span>3246</span></button> -->
+              <button type="button" class="collect-btn" v-if="courseDetail.isCollect == 0">收藏</button>
+              <button type="button" class="collect-btn has-collect" v-else-if="courseDetail.isCollect == 1">已收藏</button>
+              <button type="button" class="like-btn" v-if="courseDetail.isGood == 0">点赞<span>{{courseDetail.videoGoodNum}}</span></button>
+              <button type="button" class="like-btn has-like" v-else-if="courseDetail.isGood == 1">点赞<span>{{courseDetail.videoGoodNum}}</span></button>
             </div>
           </div>
           <div class="course-intro">
             <div class="teacher-item">
               <div class="teacher-base">
-                <img class="teacher-avatar" src="http://www.qqzhi.com/uploadpic/2014-12-10/172422803.jpg">
-                <p class="teacher-name">熊明</p>
-                <p class="teacher-major">熊明熊明熊明熊明</p>
+                <img class="teacher-avatar" :src="courseDetail.teacherAvatar">
+                <p class="teacher-name">{{courseDetail.teacherNickname}}</p>
+                <p class="teacher-major">{{courseDetail.teacherIntro}}</p>
                 <div class="teacher-output">
-                  <div>课程<span class="num">223</span></div>
-                  <div>关注<span class="num">334</span></div>
+                  <div>课程<span class="num">{{courseDetail.teacherCourseNum}}</span></div>
+                  <div>关注<span class="num">{{courseDetail.teacherAttentionNum}}</span></div>
                 </div>
-                <button type="button" class="attention-btn">关注</button>
-                <!-- <button type="button" class="attention-btn active">已关注</button> -->
+                <button type="button" class="attention-btn" v-if="courseDetail.isAttention == 0">关注</button>
+                <button type="button" class="attention-btn active" v-else-if="courseDetail.isAttention == 1">已关注</button>
               </div>
               <div class="teacher-info">
-                <p class="cont" txt="本课程简介 : ">简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</p>
+                <p class="cont" txt="本课程简介 : ">{{courseDetail.courseIntro}}</p>
               </div>
             </div>
           </div>
@@ -46,22 +46,27 @@
       </section>
     </div>
     <section class="classroom-detail-cont">
-      <div class="classroom-comment">
-        <div class="classroom-comment-act">
-          <textarea placeholder="在这里可以写下你的想法" maxlength="1000"></textarea>
-          <div class="num-limit">1000字以内</div>
-          <div class="publish-box">
-            <button type="button" class="publish-btn">发表</button>
-          </div>
-        </div>
-      </div>
+      <comment-box :data="commentList" :page="[]"></comment-box>
       <div class="classroom-recommend"></div>
     </section>
   </div>
 </template>
 <script>
+import axios from 'axios'
+import CommentBox from '~/components/CommentBox.vue'
 export default {
   name: 'ClassroomDetail',
+  components: {
+    CommentBox
+  },
+  async asyncData ({params}) {
+    console.log('id=>>>>' + params.id);
+    let { data } = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/courseDetail/${params.id}`)
+    return {
+      courseDetail: data.courseDetail,
+      commentList: data.commentList
+    }
+  },
   validate ({ params }) {
     // Must be a number
     return /^\d+$/.test(params.id)
@@ -295,52 +300,10 @@ export default {
   .classroom-detail-cont {
     display: flex;
     justify-content: space-between;
-    .classroom-comment {
-      padding: 40px 30px 0;
-      width: 800px;
-      background: #fff;
-    }
+    margin-bottom: 70px;
     .classroom-recommend {
       width: 360px;
       background: #fff;
-    }
-    .classroom-comment-act {
-      position: relative;
-      textarea {
-        padding: 20px-2px 20px;
-        width: 740px;
-        height: 140px;
-        line-height: 16px;
-        border: 1px solid #ccc;
-        &:focus {
-          border-color: #999;
-        }
-      }
-      .num-limit {
-        position: absolute;
-        right: 11px;
-        top: 118px;
-        font-size: 12px;
-        color: #ccc;
-        line-height: 12px;
-      }
-    }
-    .publish-box {
-      margin-top: 16px;
-      text-align: right;
-    }
-    .publish-btn {
-      width: 112px;
-      height: 34px;
-      background: #3583ff;
-      font-size: 16px;
-      color: #fff;
-      text-align: center;
-      border-radius: 2px;
-      cursor: pointer;
-      &:hover {
-        background: #1f75fe;
-      }
     }
   }
 </style>
