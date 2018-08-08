@@ -47,24 +47,34 @@
     </div>
     <section class="classroom-detail-cont">
       <comment-box :data="commentList" :page="[]"></comment-box>
-      <div class="classroom-recommend"></div>
+      <div class="classroom-recommend">
+        <recommend-list style="margin-bottom: 20px;height: 388px;" :title="'其他课程'" :data="otherRecommendList"></recommend-list>
+        <recommend-list style="height: 500px;" :title="'推荐课程'" :data="recommendList"></recommend-list>
+      </div>
     </section>
   </div>
 </template>
 <script>
 import axios from 'axios'
 import CommentBox from '~/components/CommentBox.vue'
+import RecommendList from '~/components/RecommendList.vue'
 export default {
   name: 'ClassroomDetail',
   components: {
-    CommentBox
+    CommentBox,
+    RecommendList
   },
   async asyncData ({params}) {
-    console.log('id=>>>>' + params.id);
     let { data } = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/courseDetail/${params.id}`)
+    // 其他课程
+    let recommendCourseRes = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/recommendList/classroomDetail/${params.id}`, { params: { limit: 3 } })
+    // 推荐课程
+    let recommendRes = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/recommendList/classroomDetail/${params.id}`, { params: { limit: 4 } })
     return {
       courseDetail: data.courseDetail,
-      commentList: data.commentList
+      commentList: data.commentList,
+      otherRecommendList: recommendCourseRes.data.recommendList,
+      recommendList: recommendRes.data.recommendList
     }
   },
   validate ({ params }) {
@@ -303,7 +313,6 @@ export default {
     margin-bottom: 70px;
     .classroom-recommend {
       width: 360px;
-      background: #fff;
     }
   }
 </style>
