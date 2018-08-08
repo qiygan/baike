@@ -17,7 +17,7 @@
         <div class="subject-item know">
           <!-- <i class="subject-ico know-ico" style="background-image: url(../assets/images/common/logo.png)"></i> -->
           <div class="subject-txt">
-            <p>全面了解托福</p>
+            <p>全面了解托福<nuxt-child/></p>
             <p>—></p>
           </div>
         </div>
