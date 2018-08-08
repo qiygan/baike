@@ -104,6 +104,7 @@ export default {
     padding: 40px 30px 0;
     width: 800px;
     background: #fff;
+    border-radius: 6px;
   }
   .comment-act {
     position: relative;

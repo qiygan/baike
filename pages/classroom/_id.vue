@@ -1,6 +1,5 @@
 <template>
   <div class="classroom-wrap detail">
-    <!-- {{$route.params.id}} -->
     <div class="course-box">
       <section class="course-cont">
         <h2 class="classroom-course-title">{{courseDetail.title}}</h2>
@@ -65,11 +64,12 @@ export default {
     RecommendList
   },
   async asyncData ({params}) {
-    let { data } = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/courseDetail/${params.id}`)
+    let baseURL = 'https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker'
+    let { data } = await axios.get(`${baseURL}/courseDetail/${params.id}`)
     // 其他课程
-    let recommendCourseRes = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/recommendList/classroomDetail/${params.id}`, { params: { limit: 3 } })
+    let recommendCourseRes = await axios.get(`${baseURL}/recommendList/classroomDetail/${params.id}`, { params: { limit: 3 } })
     // 推荐课程
-    let recommendRes = await axios.get(`https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/recommendList/classroomDetail/${params.id}`, { params: { limit: 4 } })
+    let recommendRes = await axios.get(`${baseURL}/recommendList/classroomDetail/${params.id}`, { params: { limit: 4 } })
     return {
       courseDetail: data.courseDetail,
       commentList: data.commentList,

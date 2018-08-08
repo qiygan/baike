@@ -19,9 +19,12 @@
           v-for="(item, index) in dynamicList"
           :key="index"
           :style="index === dynamicList.length - 1 ? 'borderBottom: 0' : ''">
-          <div class="dynamic-cover">
+          <nuxt-link
+            class="dynamic-cover"
+            :to="`/dynamic/${item.id}`"
+            tag="div">
             <img :src="item.cover" :alt="item.title">
-          </div>
+          </nuxt-link>
           <div class="dynamic-detail">
             <h3 class="dynamic-title">{{item.title}}</h3>
             <p class="dynamic-intro">{{item.intro}}</p>
@@ -36,23 +39,6 @@
         </div>
         <panigation class="panigation-left" :page="[]"></panigation>
       </div>
-      <!-- <div class="dynamic-recommend">
-        <h3 class="dynamic-recommend-title">热门推荐</h3>
-        <div class="dynamic-recommend-list">
-          <div
-            class="dynamic-recommend-item"
-            v-for="(item, index) in dynamicRecommendList"
-            :key="index">
-            <div class="cover">
-              <img :src="item.cover" :alt="item.title">
-            </div>
-            <div class="detail">
-              <p class="intro">{{item.intro}}</p>
-              <div class="time"><span>{{item.type}}</span>{{item.date}}</div>
-            </div>
-          </div>
-        </div>
-      </div> -->
       <recommend-list :data="dynamicRecommendList"></recommend-list>
     </section>
   </div>
@@ -155,6 +141,7 @@ export default {
       // margin-right: 20px;
       width: 230px;
       height: 150px;
+      cursor: pointer;
       img {
         width: 100%;
         height: 100%;
