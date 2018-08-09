@@ -45,7 +45,7 @@
 </template>
 <script>
 
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import RecommendList from '~/components/RecommendList.vue'
 import Panigation from '~/components/Panigation.vue'
 
@@ -70,11 +70,11 @@ export default {
     }
   },
   async asyncData (context) {
-    let { data } = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/dynamicList')
-    let recommendRes = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/recommendList/dynamic/0', { params: { limit: 5 } })
+    let { dynamicList } = await axios.get('/dynamicList')
+    let { recommendList } = await axios.get('/recommendList/dynamic/0', { params: { limit: 5 } })
     return {
-      dynamicList: data.dynamicList,
-      dynamicRecommendList: recommendRes.data.recommendList
+      dynamicList,
+      dynamicRecommendList: recommendList
     }
   }
 }

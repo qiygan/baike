@@ -65,6 +65,6 @@ module.exports = {
   },
   // 添加环境变量
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    baseUrl: process.env.BASE_URL || 'http://127.0.0.1:7300/mock/5b6baeeb9bd5d93940676421/baike'
   }
 }

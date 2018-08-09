@@ -87,7 +87,7 @@
 </template>
 <script>
 
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import CourseList from '~/components/CourseList.vue'
 import Panigation from '~/components/Panigation.vue'
 
@@ -112,11 +112,11 @@ export default {
     }
   },
   async asyncData (context) {
-    let { data } = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/classroomList')
+    let { banner, courseRecommendList, courseList } = await axios.get('/classroomList')
     return {
-      banner: data.banner,
-      courseRecommendList: data.courseRecommendList,
-      courseList: data.courseList
+      banner,
+      courseRecommendList,
+      courseList
     }
   }
 }

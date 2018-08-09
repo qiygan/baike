@@ -6,7 +6,7 @@
       :key="index">
       <div class="course-cover">
         <img :src="item.cover" :alt="item.name">
-        <p class="course-time">{{item.duration}}</p>
+        <p class="course-time">{{item.watchTime ? `已看到${item.watchTime}`: item.duration}}</p>
       </div>
       <div class="course-cont">
         <p class="course-title" :type="item.type">{{item.title}}</p>

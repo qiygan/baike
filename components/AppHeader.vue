@@ -2,8 +2,16 @@
   <div class="app-header">
     <div class="header-top-wrap">
       <div class="header-top-inner">
-        <nuxt-link to="/login" class="login-btn">登录</nuxt-link>
-        <nuxt-link to="/register" class="register-btn">注册</nuxt-link>
+        <!-- <nuxt-link to="/login" class="login-btn">登录</nuxt-link>
+        <nuxt-link to="/register" class="register-btn">注册</nuxt-link> -->
+        <nuxt-link
+          tag="div"
+          class="user-info"
+          to="/home"
+          title="会吃草的鱼">
+          <img src="http://tx.haiqq.com/uploads/allimg/170828/021032I53-9.jpg" class="avatar">
+          <span class="name">会吃草的鱼</span>
+        </nuxt-link>
       </div>
     </div>
     <div class="header-nav-wrap">
@@ -55,6 +63,20 @@ export default {
       }
       .login-btn {
         border-right: 1px solid #666;
+      }
+      .avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      .name {
+        margin: 0 20px 0 10px;
+        color: #333;
+      }
+      .user-info {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
       }
     }
   }

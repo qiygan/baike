@@ -31,7 +31,7 @@
   </section>
 </template>
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import CommentBox from '~/components/CommentBox.vue'
 import RecommendList from '~/components/RecommendList.vue'
 export default {
@@ -41,13 +41,12 @@ export default {
     RecommendList
   },
   async asyncData ({params}) {
-    let baseURL = 'https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker'
-    let { data } = await axios.get(`${baseURL}/dynamicDetail/${params.id}`)
-    let recommendRes = await axios.get(`${baseURL}/recommendList/dynamicDetail/${params.id}`, { params: { limit: 5 } })
+    let { dynamicDetail, commentList } = await axios.get(`/dynamicDetail/${params.id}`)
+    let { recommendList } = await axios.get(`/recommendList/dynamicDetail/${params.id}`, { params: { limit: 5 } })
     return {
-      dynamicDetail: data.dynamicDetail,
-      commentList: data.commentList,
-      recommendList: recommendRes.data.recommendList
+      dynamicDetail,
+      commentList,
+      recommendList
     }
   }
 }

@@ -19,20 +19,33 @@
     <section class="personal-detail personal-record">
       <h4 class="record-title">只显示近一周内的观看记录</h4>
       <div class="record-list">
-        <div class="record-item">
+        <div
+          class="record-item"
+          v-for="(item, index) in recordList"
+          :key="index">
           <div class="record-time">
-            <p class="day">16</p>
-            <p class="date">2018-03</p>
+            <p class="day">{{item[0].date.substr(8, 9)}}</p>
+            <p class="date">{{item[0].date.substr(0, 7)}}</p>
           </div>
           <div class="record-badge">&lt;<i></i>&gt;</div>
+          <button type="button" class="page-btn page-prev">&lt;</button>
+          <button type="button" class="page-btn page-next">&gt;</button>
+          <course-list :data="item"></course-list>
+          <div class="record-badge bottom" v-if="index == recordList.length - 1">&lt;<i></i>&gt;</div>
         </div>
       </div>
     </section>
   </div>
 </template>
 <script>
+import axios from '~/plugins/axios'
+import CourseList from '~/components/CourseList.vue'
+import * as _array from 'lodash/array'
 export default {
   name: 'Home',
+  components: {
+    CourseList
+  },
   data () {
     return {
     }
@@ -45,10 +58,16 @@ export default {
         { hid: 'description', name: 'description', content: '百课_个人主页' }
       ]
     }
+  },
+  async asyncData () {
+    let { recordList } = await axios.get('/recordList')
+    return {
+      recordList: _array.chunk(recordList, 3)
+    }
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
   .personal {
     &-bg {
       width: 100%;
@@ -97,6 +116,7 @@ export default {
     }
     &-detail {
       margin-top: 18px;
+      margin-bottom: 70px;
       width: 1180px;
       background: #fff;
       border-radius: 6px;
@@ -116,8 +136,42 @@ export default {
         &-item {
           position: relative;
           margin-left: 132px-24px;
+          padding: 30px 0;
           height: 362px;
           border-left: 2px solid #d4d4d4;
+          .course-list {
+            margin-left: 88px-4px;
+            padding: 0 4px;
+            width: 880px+8px;
+            flex-wrap: nowrap;
+            overflow: hidden;
+          }
+          .course-item {
+            box-shadow: 0 0 8px rgba(22, 22, 22, .14);
+            &:nth-child(4n) {
+              margin-right: 20px;
+            }
+          }
+          .page-btn {
+            position: absolute;
+            top: (302px-62px)/2+31px;
+            width: 28px;
+            height: 62px;
+            font-size: 20px;
+            color: #999;
+            background: #fff;
+            border: 1px solid #e8e8e8;
+            cursor: pointer;
+            &:hover {
+              border-color: #999;
+            }
+          }
+          .page-prev {
+            left: 34px;
+          }
+          .page-next {
+            right: 24px;
+          }
         }
         &-time {
           position: absolute;
@@ -151,6 +205,9 @@ export default {
             height: 18px;
             background: #c1c1c1;
             border-radius: 50%;
+          }
+          &.bottom {
+            top: auto;
           }
         }
       }

@@ -21,7 +21,7 @@
 </template>
 <script>
 
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import CourseList from '~/components/CourseList.vue'
 
 export default {
@@ -44,9 +44,9 @@ export default {
     }
   },
   async asyncData (context) {
-    let { data } = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/experienceList')
+    let { courseRecommendList } = await axios.get('/experienceList')
     return {
-      courseRecommendList: data.courseRecommendList
+      courseRecommendList
     }
   }
 }

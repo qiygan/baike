@@ -54,7 +54,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import CommentBox from '~/components/CommentBox.vue'
 import RecommendList from '~/components/RecommendList.vue'
 export default {
@@ -64,17 +64,16 @@ export default {
     RecommendList
   },
   async asyncData ({params}) {
-    let baseURL = 'https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker'
-    let { data } = await axios.get(`${baseURL}/courseDetail/${params.id}`)
+    let { courseDetail, commentList } = await axios.get(`/courseDetail/${params.id}`)
     // 其他课程
-    let recommendCourseRes = await axios.get(`${baseURL}/recommendList/classroomDetail/${params.id}`, { params: { limit: 3 } })
+    let other = await axios.get(`/recommendList/classroomDetail/${params.id}`, { params: { limit: 3 } })
     // 推荐课程
-    let recommendRes = await axios.get(`${baseURL}/recommendList/classroomDetail/${params.id}`, { params: { limit: 4 } })
+    let recommend = await axios.get(`/recommendList/classroomDetail/${params.id}`, { params: { limit: 4 } })
     return {
-      courseDetail: data.courseDetail,
-      commentList: data.commentList,
-      otherRecommendList: recommendCourseRes.data.recommendList,
-      recommendList: recommendRes.data.recommendList
+      courseDetail,
+      commentList,
+      otherRecommendList: other.recommendList,
+      recommendList: recommend.recommendList
     }
   },
   validate ({ params }) {

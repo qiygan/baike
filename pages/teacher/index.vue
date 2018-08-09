@@ -51,7 +51,7 @@
   </div>
 </template>
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import Panigation from '~/components/Panigation.vue'
 export default {
   name: 'Teacher',
@@ -73,10 +73,10 @@ export default {
     }
   },
   async asyncData (context) {
-    let { data } = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/teacherList')
+    let { banner, teacherList } = await axios.get('/teacherList')
     return {
-      banner: data.banner,
-      teacherList: data.teacherList
+      banner,
+      teacherList
     }
   }
 }

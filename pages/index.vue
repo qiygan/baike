@@ -118,7 +118,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import CourseList from '~/components/CourseList.vue'
 export default {
   components: {
@@ -151,10 +151,10 @@ export default {
     }
   },
   async asyncData (context) {
-    let { data } = await axios.get('https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker/courseList')
+    let { courseList, teacherList } = await axios.get('/courseList')
     return {
-      courseList: data.courseList,
-      teacherList: data.teacherList
+      courseList,
+      teacherList
     }
   }
 }
