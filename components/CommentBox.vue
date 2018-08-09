@@ -139,6 +139,7 @@ export default {
     background: #3583ff;
     font-size: 16px;
     color: #fff;
+    line-height: 34px;
     text-align: center;
     border-radius: 2px;
     cursor: pointer;

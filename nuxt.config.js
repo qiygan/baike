@@ -21,7 +21,8 @@ module.exports = {
    */
   css: [
     '~/css/minireset.scss',
-    '~/css/main.scss'
+    '~/css/main.scss',
+    'animate.css'
   ],
   /*
   ** Customize the progress bar color
