@@ -1,3 +1,3 @@
 <template>
-  <div>collect</div>
+  <div>attention</div>
 </template>
