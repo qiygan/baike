@@ -14,6 +14,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.hide {
+  display: none;
+}
 /* 自定义重置样式 */
 $mainColor: #666; // 主体颜色
 body {
@@ -143,5 +146,49 @@ section {
       border-bottom-width: 9px;
       border-left-width: 14px;
     }
+  }
+}
+.down-ico {
+  @extend %ib;
+  width: 14px;
+  height: 8px;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAICAYAAADJEc7MAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA4ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTM4IDc5LjE1OTgyNCwgMjAxNi8wOS8xNC0wMTowOTowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo4ZGQ0NzRhZS1mNjY5LTQwNzEtYTFkZC1mODdlYjQwNjY3OTgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RjI0MzdDN0U5QzlBMTFFOEFFNzY5NjU1NzNDMjQ1REEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RjI0MzdDN0Q5QzlBMTFFOEFFNzY5NjU1NzNDMjQ1REEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTcgKE1hY2ludG9zaCkiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDplMjZkNGM2NS0xOGZiLTQ3NjYtYWQ1NC02MjY5NzRkMWYyOGMiIHN0UmVmOmRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDoxZjNmNzBmYi03MTUwLTExN2ItYmIyZS1lNGJlZWZiZjFjYjUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz41wC/gAAAAsUlEQVR42mKZOXPmFAYGhv60tLS7DESAWbNm8QOpdiYgIQTEd4ACUkRoYgNS74FYlfH///8ggWlATiYQSwJtfoFDEzeQegfEW4BqgsEaoRITgVQeNs1Qm34C8VqgXAhIDK4RqmASkMoFYkGggg9QMRYg9RuIlwDFYmFqmZBNBkqAbOwH+QOoASYHsmkZsiYMG5FsngCkkoH4MxBvBmpKR1eDVSNU80wgxQvUFIVNHiDAAIYxTDqVEDtKAAAAAElFTkSuQmCC') no-repeat center;
+  vertical-align: -2px;
+}
+.up-ico {
+  @extend .down-ico;
+  transform: rotate(180deg);
+}
+
+%button {
+  width: 132px;
+  height: 36px;
+  line-height: 1;
+  text-align: center;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn {
+  &.btn-small {
+    width: 90px;
+    height: 30px;
+    font-size: 14px;
+  }
+}
+.btn-primary {
+  background: #3583ff;
+  font-size: 16px;
+  color: #fff;
+  @extend %button;
+  &:hover {
+    background: #1f75fe;
+  }
+}
+.btn-default {
+  @extend %button;
+  background: #f2f2f2;
+  color: #666;
+  &:hover {
+    background: #e7e6e6;
   }
 }

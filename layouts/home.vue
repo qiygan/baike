@@ -4,7 +4,10 @@
     <div class="personal-wrap">
       <div class="personal-bg">
         <div class="personal-info">
-          <img class="avatar" src="http://tx.haiqq.com/uploads/allimg/170828/021032I53-9.jpg" alt="头像">
+          <div class="avatr">
+            <img src="http://tx.haiqq.com/uploads/allimg/170828/021032I53-9.jpg" alt="头像">
+            <p @click="layoutType = 'avatar'">更换头像</p>
+          </div>
           <p class="nickname">会吃草的鱼</p>
         </div>
       </div>
@@ -19,6 +22,7 @@
         </ul>
       </div>
       <nuxt/>
+      <popup :type="layoutType" @hideHandler="hideLayer"></popup>
     </div>
     <app-footer></app-footer>
   </div>
@@ -26,11 +30,13 @@
 <script>
 import AppHeader from '~/components/AppHeader.vue'
 import AppFooter from '~/components/AppFooter.vue'
+import Popup from '~/components/Popup.vue'
 export default {
   name: 'LayoutHome',
   components: {
     AppHeader,
-    AppFooter
+    AppFooter,
+    Popup
   },
   data () {
     return {
@@ -41,7 +47,14 @@ export default {
         { link: '/home/share', navName: '我的分享' },
         { link: '/home/order', navName: '我的订单' },
         { link: '/home/setting', navName: '账号设置' }
-      ]
+      ],
+      // avatar
+      layoutType: ''
+    }
+  },
+  methods: {
+    hideLayer (val) {
+      this.layoutType = val
     }
   }
 }
@@ -55,12 +68,38 @@ export default {
     }
     &-info {
       padding-top: 104px;
-      .avatar {
+      .avatr {
+        position: relative;
         display: block;
         margin: 0 auto;
         width: 150px;
         height: 150px;
         border-radius: 50%;
+        cursor: pointer;
+        overflow: hidden;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+        }
+        p {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          display: none;
+          width: 150px;
+          height: 40px;
+          font-size: 12px;
+          color: #fff;
+          text-align: center;
+          line-height: 40px;
+          background: rgba(0, 0, 0, .29);
+        }
+        &:hover {
+          p {
+            display: block;
+          }
+        }
       }
       .nickname {
         font-size: 26px;

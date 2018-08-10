@@ -1,5 +1,5 @@
 <template>
-  <div class="panigation-box">
+  <div class="panigation-box" :class="theme">
     <div class="panigation-inner">
       <span class="active">1</span>
       <span>2</span>
@@ -24,6 +24,11 @@ export default {
       default: function () {
         return []
       }
+    },
+    // 主题(白色/灰色)
+    theme: {
+      type: String,
+      required: false
     }
   }
 }
@@ -36,6 +41,15 @@ export default {
       &.panigation-left {
         margin-top: 40px;
         width: 800px;
+        .active {
+          color: #fff;
+          background: #3583ff;
+        }
+        span {
+          background: #e7e7e7;
+        }
+      }
+      &.gray {
         .active {
           color: #fff;
           background: #3583ff;
