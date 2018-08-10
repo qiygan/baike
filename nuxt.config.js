@@ -66,6 +66,7 @@ module.exports = {
   },
   // 添加环境变量
   env: {
-    baseUrl: process.env.BASE_URL || 'http://127.0.0.1:7300/mock/5b6baeeb9bd5d93940676421/baike'
+    // 'http://127.0.0.1:7300/mock/5b6baeeb9bd5d93940676421/baike'
+    baseUrl: process.env.BASE_URL || 'https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker'
   }
 }
