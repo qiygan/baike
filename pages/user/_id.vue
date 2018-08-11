@@ -20,7 +20,7 @@
         <li :class="selectType === 1 ? 'active': ''" @click="selectTypeHandler(1)">付费视频</li>
       </ul>
       <p class="video-num">共100条内容</p>
-      <course-list :data="videoList"></course-list>
+      <course-list :data="videoList" :type="selectType == 0 ? 'free' : 'pay'"></course-list>
       <panigation :page="[]" style="margin-top: 46px;"></panigation>
     </section>
   </div>
@@ -59,6 +59,7 @@ export default {
   methods: {
     selectTypeHandler (type) {
       this.selectType = type
+      console.log(this.videoList.reverse());
     }
   }
 }

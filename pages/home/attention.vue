@@ -57,6 +57,15 @@ export default {
     return {
     }
   },
+  head () {
+    return {
+      title: '百课_个人主页_关注',
+      meta: [
+        { hid: 'keywords', name: 'keywords', content: '百课_个人主页_关注' },
+        { hid: 'description', name: 'description', content: '百课_个人主页_关注' }
+      ]
+    }
+  },
   async asyncData () {
     let { attentionList } = await axios.get('/attentionList')
     return {

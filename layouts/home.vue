@@ -61,6 +61,9 @@ export default {
 </script>
 <style lang="scss" scoped>
   .personal {
+    &-wrap {
+      padding-top: 120px;
+    }
     &-bg {
       width: 100%;
       height: 400px;

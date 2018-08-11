@@ -44,6 +44,14 @@ export default {
     margin: 0 auto;
     width: 1180px;
   }
+  .app-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 120px;
+  }
   .header-top {
     &-wrap {
       width: 100%;
@@ -95,7 +103,7 @@ export default {
       cursor: pointer;
       // 当前模块高亮
       &.nuxt-link-exact-active {
-        background: #1155c1;
+        background: rgba(17, 85, 193, .75);
       }
       &:hover {
         @extend .nuxt-link-exact-active;

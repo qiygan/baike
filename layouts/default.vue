@@ -1,7 +1,9 @@
 <template>
   <div>
     <app-header></app-header>
-    <nuxt/>
+    <div class="container">
+      <nuxt/>
+    </div>
     <app-footer></app-footer>
   </div>
 </template>
@@ -16,3 +18,8 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+  .container {
+    padding-top: 120px;
+  }
+</style>

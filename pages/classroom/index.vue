@@ -59,8 +59,8 @@
         </nuxt-link>
         <div class="course-cont">
           <p class="course-title" :type="item.type">{{item.title}}</p>
-          <p class="course-money">
-            <template v-if="item.price > 0">
+          <p class="course-money" :class="item.price < 10 ? 'txt' : ''">
+            <template v-if="item.price >= 10">
               <span class="rmb">￥</span>{{item.price}}
             </template>
             <template v-else>
@@ -193,6 +193,9 @@ export default {
               }
             }
           }
+          &-cont {
+            padding: 0 14px;
+          }
           &-cover {
             height: 258px;
           }
@@ -213,8 +216,11 @@ export default {
             }
           }
           &-money {
-            font-size: 20px;
+            font-size: 22px;
             line-height: 32px;
+            &.txt {
+              font-size: 18px;
+            }
           }
           &-info {
             height: 42px;
@@ -226,6 +232,9 @@ export default {
             .nickname {
               font-size: 16px;
             }
+          }
+          &-num .good-ico-box {
+            margin-right: 6px;
           }
           // 新增
           &-badge {

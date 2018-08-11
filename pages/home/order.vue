@@ -138,7 +138,6 @@ export default {
       }
     }
     &-title {
-      margin-top: -5px;
       margin-bottom: 28px-5px;
       width: 360px;
       font-size: 18px;

@@ -28,7 +28,10 @@
         v-for="(item, index) in teacherList"
         :key="index">
         <div class="teacher-base">
-          <img class="teacher-avatar" :src="item.avatar" :alt="item.nickname">
+          <nuxt-link
+          :to="`/user/${item.id}`">
+            <img class="teacher-avatar" :src="item.avatar" :alt="item.nickname">
+          </nuxt-link>
           <p class="teacher-name">{{item.nickname}}</p>
           <div class="teacher-output">
             <div>课程<span class="num">{{item.courseNum}}</span></div>
@@ -156,8 +159,9 @@ export default {
       border-bottom: 1px solid #f2f2f2;
       .attention-btn {
         width: 88px;
-        height: 24px;
-        line-height: 24px;
+        height: 26px;
+        font-size: 15px;
+        line-height: 1;
         background: #3583ff;
         color: #fff;
         border-radius: 2px;
@@ -190,7 +194,7 @@ export default {
     &-output {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 20px-4px;
+      margin-bottom: 20px-4px-2px;
       padding: 0 40px;
       font-size: 16px;
       line-height: 16px+8px;

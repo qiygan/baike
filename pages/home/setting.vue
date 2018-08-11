@@ -88,7 +88,7 @@ export default {
   name: 'Setting',
   data () {
     return {
-      selectType: 1,
+      selectType: 0,
       drop: {
         sex: 0,
         city: 0

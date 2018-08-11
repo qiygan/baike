@@ -1,7 +1,9 @@
 <template>
   <div class="index-wrap">
     <swiper :options="swiperOption" class="banner-swiper" ref="mySwiper">
-      <swiper-slide v-for="(item, index) in [1, 2, 3, 4]" :key="index">
+      <swiper-slide
+        v-for="(item, index) in [1, 2, 3, 4]"
+        :key="index">
         <img v-if="index==0" src="~/assets/images/banner/banner1.png" />
         <img v-else-if="index==1" src="~/assets/images/banner/banner2.png" />
         <img v-else-if="index==2" src="~/assets/images/banner/banner3.png" />
@@ -307,21 +309,33 @@ export default {
       color: #fff;
       &:nth-child(1) {
         background: #dae7fd;
+        &:hover {
+          background: #cfdff9;
+        }
       }
       &:nth-child(2) {
         background: #a6e1e4;
+        &:hover {
+          background: #9fdfe2;
+        }
       }
       &:nth-child(3) {
         background: #dcca99;
+        &:hover {
+          background: #dac58d;
+        }
       }
       &:nth-child(4) {
         background: #cfc0e2;
+        &:hover {
+          background: #ccbae2;
+        }
       }
     }
     &-avatar {
       position: absolute;
       top: -61px;
-      left: 79px;
+      left: 85px;
       width: 110px;
       height: 110px;
       border: 6px solid #fff;

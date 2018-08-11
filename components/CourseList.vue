@@ -7,23 +7,41 @@
       <div class="course-cover">
         <img :src="item.cover" :alt="item.name">
         <p class="course-time">{{item.watchTime ? `已看到${item.watchTime}`: item.duration}}</p>
+        <i class="play-ico"></i>
       </div>
       <div class="course-cont">
         <p class="course-title" :type="item.type">{{item.title}}</p>
-        <p class="course-money">
-          <template v-if="item.price > 0">
+        <p
+          class="course-money"
+          :class="item.price < 10 ? 'txt' : ''"
+          v-if="!type">
+          <template v-if="item.price >=  10">
             <span class="rmb">￥</span>{{item.price}}
           </template>
           <template v-else>
             免费
           </template>
         </p>
+        <p
+          class="course-money txt"
+          v-else-if="type == 'free'">
+          免费
+        </p>
+        <p
+          class="course-money"
+          v-else-if="type == 'pay'">
+          <span class="rmb">￥</span>{{item.price}}
+        </p>
         <div class="course-info">
-          <div class="course-avatar">
+          <nuxt-link
+            tag="div"
+            class="course-avatar"
+            :to="`/user/${item.id}`"
+            >
             <img
               :src="item.avatar"
               :alt="item.nickname"><span class="nickname">{{item.nickname}}</span>
-          </div>
+          </nuxt-link>
           <div class="course-num">
             <span class="view-ico-box"><i class="view-ico"></i>{{item.viewNum}}</span>
             <span class="good-ico-box"><i class="good-ico"></i>{{item.goodNum}}</span>
@@ -44,6 +62,11 @@ export default {
       default: function () {
         return []
       }
+    },
+    // 类型 free: 免费; pay: 付费
+    type: {
+      type: String,
+      required: false
     }
   }
 }
@@ -76,12 +99,16 @@ export default {
       }
       &:hover {
         box-shadow: 0 0 8px rgba(22, 22, 22, .14);
+        .course-cover img {
+          transform: scale(1.2);
+        }
       }
     }
     &-cover {
       position: relative;
       width: 100%;
       height: 190px;
+      overflow: hidden;
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
       cursor: pointer;
@@ -90,6 +117,15 @@ export default {
         height: 100%;
         border-top-left-radius: 6px;
         border-top-right-radius: 6px;
+        transition: transform .25s ease-in-out;
+      }
+      .play-ico {
+        display: none;
+      }
+      &:hover {
+        .play-ico {
+          display: block;
+        }
       }
     }
     &-time {
@@ -103,7 +139,7 @@ export default {
       background: rgba(0, 0, 0, .2);
     }
     &-cont {
-      padding: 0 10px;
+      padding: 0 12px;
     }
     &-title {
       margin: 18px 0 8px;
@@ -124,14 +160,21 @@ export default {
         border: 1px solid #05ae65;
         @extend %vt;
       }
+      &:hover {
+        color: #3583ff;
+      }
     }
     &-money {
-      font-size: 18px;
+      height: 26px;;
+      font-size: 22px;
       color: #3583ff;
       line-height: 18px+8px;
       text-align: center;
       .rmb {
         font-size: 16px;
+      }
+      &.txt {
+        font-size: 18px;
       }
     }
     &-info {
@@ -143,6 +186,7 @@ export default {
     &-avatar {
       display: flex;
       align-items: center;
+      cursor: pointer;
       img {
         margin-right: 8px;
         width: 32px;
@@ -160,10 +204,10 @@ export default {
       font-size: 12px;
       color: #999;
       .view-ico-box {
-        margin-right: 20px;
+        margin-right: 16px;
       }
       .good-ico-box {
-        margin-right: 6px;
+        margin-right: 4px;
       }
     }
   }

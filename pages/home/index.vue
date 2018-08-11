@@ -35,10 +35,10 @@ export default {
   },
   head () {
     return {
-      title: '百课_个人主页',
+      title: '百课_个人主页_观看记录',
       meta: [
-        { hid: 'keywords', name: 'keywords', content: '百课_个人主页' },
-        { hid: 'description', name: 'description', content: '百课_个人主页' }
+        { hid: 'keywords', name: 'keywords', content: '百课_个人主页_观看记录' },
+        { hid: 'description', name: 'description', content: '百课_个人主页_观看记录' }
       ]
     }
   },
@@ -115,7 +115,7 @@ export default {
           position: absolute;
           top: -5px;
           left: -(88px+18px);
-          width: 88px;
+          width: 90px;
           color: #999;
           text-align: center;
           .day {

@@ -13,11 +13,9 @@
           v-for="(item, index) in commentList"
           :key="index">
           <div class="comment-content">
-            <nuxt-link
-              class="comment-avatar"
-              :to="`/user/${item.userId}`">
+            <div class="comment-avatar">
               <img :src="item.avatar" :alt="item.nickname">
-            </nuxt-link>
+            </div>
             <div class="comment-info">
               <p class="comment-nickname">{{item.nickname}}<span class="time">时间：{{item.time}}</span></p>
               <p class="comment-cont">{{item.content}}</p>
@@ -181,11 +179,11 @@ export default {
     &-nickname {
       margin-bottom: 16px-9px-5px;
       line-height: 14px+9px+9px;
-    }
-    .time {
-      margin-left: 30px;
-      font-size: 12px;
-      color: #999;
+      .time {
+        margin-left: 30px;
+        font-size: 12px;
+        color: #999;
+      }
     }
     &-cont {
       color: #333;
