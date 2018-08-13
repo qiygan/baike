@@ -1,11 +1,12 @@
 {
-  "name": "baike",
+  "name": "vue-nuxt",
   "version": "1.0.0",
   "description": "Nuxt.js project",
   "author": "bijl <447616273@qq.com>",
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "dev:mock": "cross-env BASE_URL=https://www.easy-mock.com/mock/5a55b6c8de90b06840dda966/lkker nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -13,13 +14,25 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "axios": "^0.18.0",
+    "nuxt": "^1.0.0",
+    "vue-awesome-swiper": "^3.1.3"
   },
   "devDependencies": {
+    "animate.css": "^3.7.0",
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.2.0",
     "eslint": "^4.15.0",
+    "eslint-config-standard": "^11.0.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0"
+    "eslint-plugin-import": "^2.12.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "eslint-plugin-vue": "^4.0.0",
+    "lodash": "^4.17.10",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.3"
   }
 }
