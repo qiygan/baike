@@ -1,7 +1,6 @@
 <template>
   <div class="experience-wrap">
-    <div class="banner-swiper">
-      <img src="~assets/images/banner/banner9.jpg" alt="经验分享banner">
+    <div class="banner-swiper" :style="{background: bannerImg}">
     </div>
     <section class="experience-skill">
       <div class="experience-skill-inner">
@@ -31,6 +30,7 @@ export default {
   },
   data () {
     return {
+      bannerImg: `url(${require('~/assets/images/banner/banner9.jpg')}) no-repeat center`
     }
   },
   // Set Meta Tags for this Page
