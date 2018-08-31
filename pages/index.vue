@@ -3,15 +3,12 @@
     <swiper :options="swiperOption" class="banner-swiper" ref="mySwiper">
       <swiper-slide
         v-for="(item, index) in [1, 2, 3, 4]"
-        :key="index">
-        <img v-if="index==0" src="~/assets/images/banner/banner1.png" />
-        <img v-else-if="index==1" src="~/assets/images/banner/banner2.png" />
-        <img v-else-if="index==2" src="~/assets/images/banner/banner3.png" />
-        <img v-else-if="index==3" src="~/assets/images/banner/banner4.png" />
+        :key="index"
+        :style="{background: swiperSlides[index]}">
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
+      <!-- <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
     <section class="subject-box">
       <h2 class="title"><span class="point-ico point-left"></span>学科分类<span class="point-ico point-right"></span></h2>
@@ -77,10 +74,11 @@
         <nuxt-link to="/teacher" class="view-more">更多>></nuxt-link>
       </h2>
       <div class="teacher-list">
-        <div
+        <nuxt-link
           class="teacher-item"
           v-for="(item, index) in teacherList"
-          :key="index">
+          :key="index"
+          :to="`/user/${item.id}`">
           <img
             class="teacher-avatar"
             :src="item.avatar"
@@ -91,7 +89,7 @@
             <div>课程<span class="num">{{item.courseNum}}</span></div>
             <div>关注<span class="num">{{item.attentionNum}}</span></div>
           </div>
-        </div>
+        </nuxt-link>
       </div>
     </section>
     <section class="vista-box">
@@ -144,11 +142,10 @@ export default {
         }
       },
       swiperSlides: [
-        '~/assets/images/banner/banner1.png',
-        '~/assets/images/banner/banner2.png',
-        '~/assets/images/banner/banner3.png',
-        '~/assets/images/banner/banner4.png',
-        '~/assets/images/banner/banner5.png'
+        `url(${require('~/assets/images/banner/banner1.png')}) no-repeat center`,
+        `url(${require('~/assets/images/banner/banner2.png')}) no-repeat center`,
+        `url(${require('~/assets/images/banner/banner3.png')}) no-repeat center`,
+        `url(${require('~/assets/images/banner/banner4.png')}) no-repeat center`
       ]
     }
   },

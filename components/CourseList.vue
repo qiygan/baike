@@ -4,13 +4,24 @@
       class="course-item"
       v-for="(item, index) in data"
       :key="index">
-      <div class="course-cover">
+      <nuxt-link
+          tag="div"
+          class="course-cover"
+          :to="`/classroom/${item.id}`"
+          >
         <img :src="item.cover" :alt="item.name">
         <p class="course-time">{{item.watchTime ? `已看到${item.watchTime}`: item.duration}}</p>
         <i class="play-ico"></i>
-      </div>
+      </nuxt-link>
       <div class="course-cont">
-        <p class="course-title" :type="item.type">{{item.title}}</p>
+        <nuxt-link
+          tag="p"
+          class="course-title"
+          :to="`/classroom/${item.id}`"
+          :type="item.type"
+          >
+          {{item.title}}
+        </nuxt-link>
         <p
           class="course-money"
           :class="item.price < 10 ? 'txt' : ''"
@@ -100,7 +111,7 @@ export default {
       &:hover {
         box-shadow: 0 0 8px rgba(22, 22, 22, .14);
         .course-cover img {
-          transform: scale(1.2);
+        transform: scale(1.2);
         }
       }
     }
@@ -148,6 +159,7 @@ export default {
       font-size: 16px;
       color: #333;
       line-height: 16px;
+      cursor: pointer;
       @extend %ellipsis;
       &:before {
         content: attr(type);

@@ -1,8 +1,6 @@
 <template>
   <div class="classroom-wrap">
-    <div class="banner-swiper">
-      <img src="~/assets/images/banner/banner7.png" alt="推荐教师讲堂">
-    </div>
+    <div class="banner-swiper" :style="{background: bannerImg}"></div>
     <div class="classroom-filter-box">
       <div class="filter-box first">
         <span class="type-title">分类：</span>
@@ -99,6 +97,7 @@ export default {
   },
   data () {
     return {
+      bannerImg: `url(${require('~/assets/images/banner/banner7.png')}) no-repeat center`
     }
   },
   // Set Meta Tags for this Page
