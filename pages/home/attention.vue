@@ -31,6 +31,7 @@
                   :key="i">
                   <img :src="ele.cover" :alt="ele.title">
                   <p class="records-time">{{ele.duration}}</p>
+                  <i class="play-ico small-ico"></i>
                 </div>
                 <button type="button" class="page-btn page-prev">&lt;</button>
                 <button type="button" class="page-btn page-next">&gt;</button>
@@ -174,9 +175,22 @@ export default {
         position: relative;
         width: 210px;
         height: 140px;
+        overflow: hidden;
         img {
           width: 100%;
           height: 100%;
+          transition: transform .25s ease-in-out;
+        }
+        .play-ico {
+          display: none;
+        }
+        &:hover {
+          .play-ico {
+            display: block;
+          }
+          img {
+            transform: scale(1.2);
+          }
         }
       }
       .records-time {

@@ -1,15 +1,14 @@
 <template>
   <div class="subject-wrap">
     <swiper :options="swiperOption" class="banner-swiper" ref="mySwiper">
-      <swiper-slide v-for="(item, index) in [1, 2, 3, 4]" :key="index">
-        <img v-if="index==0" src="~/assets/images/banner/banner6.png" />
-        <img v-else-if="index==1" src="~/assets/images/banner/banner1.png" />
-        <img v-else-if="index==2" src="~/assets/images/banner/banner2.png" />
-        <img v-else-if="index==3" src="~/assets/images/banner/banner4.png" />
+      <swiper-slide
+        v-for="(item, index) in [1]"
+        :key="index"
+        :style="{background: swiperSlides[0]}">
       </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
+      <!-- <div class="swiper-pagination" slot="pagination"></div>
       <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-button-next" slot="button-next"></div> -->
     </swiper>
     <section class="subject-cont">
       <ul class="subject-filter">
@@ -64,7 +63,7 @@ export default {
     return {
       swiperOption: {
         autoplay: true,
-        loop: true,
+        loop: false,
         pagination: {
           el: '.swiper-pagination'
         },
@@ -78,12 +77,10 @@ export default {
         }
       },
       swiperSlides: [
-        '~/assets/images/banner/banner1.png',
-        '~/assets/images/banner/banner2.png',
-        '~/assets/images/banner/banner3.png',
-        '~/assets/images/banner/banner4.png',
-        '~/assets/images/banner/banner5.png',
-        '~/assets/images/banner/banner6.png'
+        `url(${require('~/assets/images/banner/banner6.png')}) no-repeat center`,
+        `url(${require('~/assets/images/banner/banner1.png')}) no-repeat center`,
+        `url(${require('~/assets/images/banner/banner2.png')}) no-repeat center`,
+        `url(${require('~/assets/images/banner/banner4.png')}) no-repeat center`
       ]
     }
   },
