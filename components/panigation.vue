@@ -14,6 +14,7 @@
   </div>
 </template>
 <script>
+// linux 对大小写敏感
 export default {
   name: 'Panigation',
   props: {
