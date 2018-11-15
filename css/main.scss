@@ -42,6 +42,7 @@ textarea {
 // sticky-footer
 body, html{
   width: 100%;
+  min-width: 1180px;
   min-height: 100vh;
   background: #f6f7f9;
 }
