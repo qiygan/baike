@@ -162,7 +162,7 @@ export default {
       button {
         width: 110px;
         height: 32px;
-        line-height: 30px;
+        line-height: 1;
         cursor: pointer;
         border: 1px solid #3583ff;
         color: #3583ff;
@@ -222,7 +222,7 @@ export default {
         .attention-btn {
           width: 104px;
           height: 30px;
-          line-height: 30px;
+          line-height: 1;
           background: #3583ff;
           color: #fff;
           border-radius: 2px;

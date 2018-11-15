@@ -100,7 +100,7 @@ export default {
         background: #3583ff;
         font-size: 16px;
         color: #fff;
-        line-height: 36px;
+        line-height: 1;
         border-radius: 2px;
         cursor: pointer;
         &:hover {

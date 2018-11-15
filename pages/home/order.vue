@@ -160,7 +160,7 @@ export default {
       button {
         width: 104px;
         height: 32px;
-        line-height: 32px;
+        line-height: 1;
         font-size: 16px;
         border-radius: 2px;
         cursor: pointer;
